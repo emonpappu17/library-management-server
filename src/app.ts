@@ -1,23 +1,22 @@
-import express, { Application, Response, Request, NextFunction, ErrorRequestHandler } from "express";
+import express, { Application, Response, Request, NextFunction } from "express";
 import { bookRoutes } from "./app/routes/book.routes";
 import { borrowRoutes } from "./app/routes/borrow.routes";
-import path from "path";
 import cors from "cors"
 
 const app: Application = express();
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: ["https://library-management-client-chi.vercel.app"] }));
+
+
 
 // ✅ Route Mounting
 app.use("/api/books", bookRoutes)
 app.use("/api/borrow", borrowRoutes)
 
-// Serve static files from the public directory
-app.use(express.static(path.join(__dirname, "../public")));
 
 // Root route to serve welcome page
 app.get("/", (req: Request, res: Response) => {
-    res.sendFile(path.join(__dirname, "../public/welcome.html"));
+    res.send("server is created successfully");
 });
 
 // ✅ Not Found
