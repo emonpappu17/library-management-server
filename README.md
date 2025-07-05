@@ -35,8 +35,8 @@ A full-featured RESTful API for managingg books and borrow records using **Expre
 
 ```bash
 # Clone the repository
-git clone https://github.com/emonpappu17/library-management.git
-cd library-management
+git clone https://github.com/emonpappu17/library-management-server.git
+cd library-management-server
 
 # Install dependencies
 npm install
@@ -45,7 +45,7 @@ npm install
 cp .env.example .env
 
 # Set environment variables
-MONGODB_URI=mongodb://localhost:27017/library-management
+MONGODB_URI=your-mongo-db-uri
 
 # Run the server
 npm run dev
@@ -81,7 +81,7 @@ POST /api/books
 ### 2. Get All Books
 
 ```
-GET /api/books?filter=FANTASY&sortBy=createdAt&sort=desc&limit=5
+GET /api/books
 
 ```
 
